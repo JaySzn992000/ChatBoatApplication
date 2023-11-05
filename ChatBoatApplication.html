@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<div class="msg_container">
+
+    <div class="div-cb">
+        <img src="https://cdn.chatbot.com/widget/61f28451fdd7c5000728b4f9/FPBAPaZFOOqqiCbV.png" alt="">
+        <h2>Chat with us</h2>
+    </div>
+    
+<div class="container">
+
+<div id="box">
+
+    
+<button class="fmsg">Hi</button> <br>
+<button class="fmsg">What Do you want</button> <br>
+
+<button class="fmsg">HTML & CSS</button> <br>
+<button class="fmsg">HTML CSS & Javascript</button>
+
+
+<button class="pages" style="background-color: deeppink; color: white;">How Many Pages</button> <br>
+
+<button class="hosting"> Choose web Hosting</button> <br>
+<button class="hosting">Go Daddy</button> <br>
+<button class="hosting">Hostinger</button>
+
+
+<p id="output"></p>
+
+</div>
+
+</div>
+
+<div class="send-mg">
+<input type="text" placeholder="type here" class="inputfield" id="getinput">
+<button class="send_msg" onclick="message()">Send message</button>
+</div>
+
+</div>
+
+
+
+<style>
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+.container{
+    position: absolute;
+    width: 100%;
+    height: 360px;
+    overflow-y: auto;
+    background-color: gainsboro;
+}
+
+
+.box{
+    padding: 20px;
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.send_msg{
+    background-color: royalblue;
+    bottom: 6%;
+    left: 10%;
+    position: absolute;
+    color: white;
+    border: none;
+    padding: 13px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.div-cb{
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    width: 100%;
+    height: 87px;
+    margin-top: -.7em;
+    background-color: royalblue;
+}
+
+
+.div-cb img{
+    width: 57px;
+    margin-top: -.3em;
+    margin-left: .5em;
+    border-radius: 7px;
+}
+
+.div-cb h2{
+    color: white;
+}
+
+.inputfield{
+    width: 90%;
+    margin-left: 1em;
+    padding: 14px;
+    padding-left: 13px;
+    outline: none;
+    border: none;
+}
+
+.msg_container{
+    width: 310px;
+    height: 535px;
+    position: absolute;
+    bottom: 10%;
+    background-color: gainsboro;
+    left: 2%;
+}
+
+.send-mg{
+    width: 310px;
+    height: 117px;
+    position: absolute;
+    bottom: -8%;
+    background-color: #ccc;
+    padding: 17px;
+}
+
+
+.pages{
+    display: none;
+}
+
+.fmsg{
+    display: none   ;
+}
+
+.hosting{
+    display: none;
+}
+
+#box{
+    margin-top: 3em;
+}
+
+#box button{
+    background-color: lightblue;
+    padding: 11px;
+    border: none;
+    margin-left: 2em;
+    margin-top: .7em;
+
+}
+
+
+
+</style>
+
+
+
+<script>
+    
+    window.addEventListener("load", function(){
+        setTimeout(function(){
+            var msgd = document.querySelectorAll(".fmsg");
+            msgd.forEach(function(element){
+                element.style.display = "block";
+            });
+        }, 2000);
+    });
+    
+
+
+    
+    function message(){
+        var inputvalue = document.getElementById("getinput").value;
+        var pgs = document.querySelectorAll(".pages");
+        var hstg = document.querySelectorAll(".hosting");
+        var outputk = document.getElementById("output");
+    
+        if ( inputvalue == "html & css" || inputvalue == "HTML & CSS" ) {
+            hstg.forEach(function (element){
+                element.style.display = "block";
+            });
+        }
+        
+        else if ( inputvalue == "html css & javascript" || inputvalue == "HTML CSS & JAVASCRIPT" ) {
+
+            hstg.forEach(function (element){
+                element.style.display = "block";
+            });
+
+        }
+
+        else if ( inputvalue == "" ) {
+            alert("Empty");
+        }
+        
+        else if ( inputvalue == "go daddy" || inputvalue == "GO DADDY" || inputvalue == "hostinger" || inputvalue == "HOSTINGER" ) {
+            pgs.forEach(function(element){
+                element.style.display = "block";
+            });
+        }
+
+
+        else if ( inputvalue !== "" && !isNaN(inputvalue)) {
+            var element = document.createElement("p");
+            element.innerHTML = parseFloat(inputvalue) * 1499;
+            outputk.appendChild(element);
+            outputk.style.marginLeft = "1.7em"
+            element.style.width = "90px"
+            element.style.padding = "14px"
+            element.style.marginTop = "1.7em"
+            element.style.backgroundColor = "royalblue"
+            element.style.color = "white"
+        }
+
+        else {
+            alert("Wrong Input");
+            alert("Use lowercase or Uppercase letters only" )
+        }
+    }
+
+    </script>
+    
+
+
+
+</body>
+</html>
